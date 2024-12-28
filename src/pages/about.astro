@@ -1,7 +1,8 @@
 ---
-import '../styles/global.css';
+import Baselayout from '../layouts/BaseLayout.astro';
+const pageTitle = "about Me and my journey with Astro";
 
-const pageTitle = "about Me and my journey";
+
 const identity = {
   firstName: "Zaky",
   country: "Indonesia",
@@ -19,34 +20,21 @@ const fontWeight = "bold";
 const textCase= "uppercase"; 
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <style define:vars={{skillColor, fontWeight, textCase}}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-      .skill {
-        color: green;
-        color: var(--skillColor);
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
-      }
-    </style>
-  </head>
-  <body>
-    <a href="/">Home</a>
+<Baselayout pageTitle={pageTitle}>
+  <style define:vars={{skillColor, fontWeight, textCase}}>
+    h1 {
+      color: purple;
+      font-size: 4rem;
+    }
+    .skill {
+      color: green;
+      color: var(--skillColor);
+      font-weight: var(--fontWeight);
+      text-transform: var(--textCase);
+    }
+  </style>
 
-
-    
-    <a href="/about/">About</a>
-    <a href="/blog">blog</a>
-    <h1>{pageTitle}</h1>
+  
     <h2>... and my new Astro site!</h2>
 
     <p>
@@ -59,7 +47,9 @@ const textCase= "uppercase";
       back and see how my journey is going!
     </p>
 
-    <p>Here are a few facts about me:</p>
+    <p>
+      Here are a few facts about me:
+    </p>
     <ul>
       <li>My name is {identity.firstName}</li>
       <li>
@@ -90,5 +80,4 @@ const textCase= "uppercase";
         <p>My goal is not 3 days.</p>
       )
     }
-  </body>
-</html>
+  </Baselayout>
